@@ -37,7 +37,7 @@ async function main() {
 
     console.log("Approving ", totalAmount, " to contract MultiTransfer");
     await token.connect(owner).approve(multiTransfer.address, totalAmount);
-    await sleep(10000);
+    await sleep(15000);
 
     console.log("=============== Before ===============");
     console.log("Owner balance: ", await getBalance(owner.address));
@@ -47,7 +47,7 @@ async function main() {
 
     console.log("Multi transfering . . .");
     await multiTransfer.connect(owner).multiTransfer(tokenAddress, listAddresses, listAmounts);
-    await sleep(10000);
+    await sleep(15000);
 
     console.log("=============== After ===============");
     console.log("Owner balance: ", await getBalance(owner.address));
