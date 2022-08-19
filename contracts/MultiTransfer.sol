@@ -4,10 +4,10 @@ pragma solidity ^0.8.9;
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract MultipleTransfer is Ownable {
+contract MultiTransfer is Ownable {
     constructor() {}
 
-    function multipleTransfer(
+    function multiTransfer(
         address _token,
         address[] memory _recipients,
         uint256[] memory _amounts
