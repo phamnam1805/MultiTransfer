@@ -31,8 +31,12 @@ contract MultiTransfer is Ownable {
         token.transfer(msg.sender, amount);
     }
 
-    function getBalance(address _token) public view returns(uint256) {
+    function getBalance(address _token) public view returns (uint256) {
         IERC20 token = IERC20(_token);
         return token.balanceOf(address(this));
+    }
+
+    receive() external payable {
+        revert();
     }
 }
