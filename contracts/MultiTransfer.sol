@@ -9,8 +9,8 @@ contract MultiTransfer is Ownable {
 
     function multiTransfer(
         address _token,
-        address[] memory _recipients,
-        uint256[] memory _amounts
+        address[] calldata _recipients,
+        uint256[] calldata _amounts
     ) public onlyOwner {
         require(
             _recipients.length == _amounts.length,
@@ -22,5 +22,17 @@ contract MultiTransfer is Ownable {
             token.transferFrom(msg.sender, address(this), _amounts[i]);
             token.transfer(_recipients[i], _amounts[i]);
         }
+    }
+
+    function withdraw(address _token) public onlyOwner {
+        IERC20 token = IERC20(_token);
+        uint256 amount = token.balanceOf(address(this));
+
+        token.transfer(msg.sender, amount);
+    }
+
+    function getBalance(address _token) public view returns(uint256) {
+        IERC20 token = IERC20(_token);
+        return token.balanceOf(address(this));
     }
 }
