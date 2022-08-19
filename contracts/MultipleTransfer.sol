@@ -2,13 +2,16 @@
 pragma solidity ^0.8.9;
 
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract MultipleTransfer {
+contract MultipleTransfer is Ownable {
+    constructor() {}
+
     function multipleTransfer(
         address _token,
         address[] memory _recipients,
         uint256[] memory _amounts
-    ) public {
+    ) public onlyOwner {
         require(
             _recipients.length == _amounts.length,
             "MultipleTransfer: invalid input"

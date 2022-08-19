@@ -31,6 +31,10 @@ module.exports = {
         bsctestnet: {
             url: "https://data-seed-prebsc-2-s2.binance.org:8545/",
             accounts: [process.env.PRIVATE_KEY]
+        },
+        bscmainnet: {
+            url: "https://bsc-dataseed3.binance.org",
+            accounts: [process.env.PRIVATE_KEY]
         }
     },
     solidity: {
