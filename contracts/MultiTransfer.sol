@@ -19,8 +19,7 @@ contract MultiTransfer is Ownable {
         IERC20 token = IERC20(_token);
 
         for (uint256 i = 0; i < _recipients.length; i++) {
-            token.transferFrom(msg.sender, address(this), _amounts[i]);
-            token.transfer(_recipients[i], _amounts[i]);
+            token.transferFrom(msg.sender, _recipients[i], _amounts[i]);
         }
     }
 
