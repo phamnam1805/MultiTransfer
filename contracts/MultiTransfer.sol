@@ -14,7 +14,7 @@ contract MultiTransfer is Ownable {
     ) public onlyOwner {
         require(
             _recipients.length == _amounts.length,
-            "MultipleTransfer: invalid input"
+            "MultiTransfer: invalid input"
         );
         IERC20 token = IERC20(_token);
 
